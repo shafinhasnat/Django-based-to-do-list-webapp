@@ -1,0 +1,79 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'css/my_style.css' %}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    
+    .foot {
+       position: fixed;
+       left: 0;
+       bottom: 0;
+       width: 100%;
+       text-align: center;
+       padding-bottom: 10px;
+
+    }
+    .center-screen {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .dash {
+    width: 250px; /* You can set the dimensions to whatever you want */
+    height: 250px;
+    object-fit: contain;
+    }
+    .title-img{
+    width: 30px; /* You can set the dimensions to whatever you want */
+    height: 30px;
+    object-fit: contain;
+    }
+    @media only screen and (max-width: 1000px){
+    .dash {
+    width: 200px; /* You can set the dimensions to whatever you want */
+    height: 200px;
+    object-fit: contain;
+    }
+    }
+
+
+  </style>
+	<title>myTODO | {{ title }}</title>
+</head>
+<body>
+	<header class='site-header'>
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="{% url 'home' %}">myTODO</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+	</header>
+	<br>
+	<div class='container p-5'>
+		{% block content %}{% endblock %}
+
+    <div class="text-center foot p-2 bg-dark text-white">
+      Developer: <a href='https://www.facebook.com/shafin.hasnat' class='btn btn-outline-light btn-sm'>Shafin Hasnat</a>
+    </div>
+
+	</div>
+</body>

@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+	<form method='POST'>
+		{% csrf_token %}
+	  <div class="form-group border-bottom mb-4">
+	    <label for="exampleInputEmail1">To do</label>
+	    <div class="form-group">
+		  <textarea class="form-control" rows="2" name='item' placeholder="Tasks to be done"></textarea>
+		</div>
+	  <button type="submit" class="btn btn-primary mb-1">Submit</button>
+	  </div>
+	</form>
+	{% if messages %}
+		{% for message in messages %}
+			<div class="alert alert-warning alert-dismissible fade show" role="alert">
+			  {{ message }}
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			    <span aria-hidden="true">&times;</span>
+			  </button>
+			</div>
+		{% endfor %}
+	{% endif %}
+	{% if all_items %}
+	<table class='table table-bordered table-striped table-secondary'>
+		{% for things in all_items %}
+			{% if things.completed %}
+				<tr class="table-success">
+					<td class="striker">
+						{{ things.item }}
+					</td>
+					<td>
+						<center>
+							<a class='bool' href="{% url 'uncross' things.id %}">Uncross</a>
+						</center>
+					</td>
+					<td>
+						<center>
+							<a class='delete' href="{% url 'delete' things.id %}">Delete</a>
+						</center>
+					</td>
+				</tr>	
+			{% else %}
+				<tr>
+					<td>
+						{{ things.item }}
+					</td>
+					<td>
+						<center>
+							<a class='bool' href="{% url 'cross_off' things.id %}">Cross</a>
+						</center>
+					</td>
+					<td>
+						<center>
+							<a class='delete' href="{% url 'delete' things.id %}">Delete</a>
+						</center>
+					</td>
+				</tr>
+			{% endif %}
+		{% endfor %}
+	</table>
+	{% endif %}
+{% endblock %}

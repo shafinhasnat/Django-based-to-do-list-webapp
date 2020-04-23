@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+this is about
+<script type="text/javascript"> var rts_configuration =
+{
+RTS_key: 'Key-Provided-to-Licensed-Client'
+}
+</script>
+<script src="https://www.realtimestatistics.net/rts/RTSp.js" type="text/javascript"></script>
+-----------------------------------------------------------------------
+2. place this where you want the counter (running number) to appear:
+-----------------------------------------------------------------------
+<span class="rts-counter" rel="current_population"></span>
+{% endblock %}

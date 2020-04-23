@@ -1,0 +1,20 @@
+.striker{
+	text-decoration: line-through;
+}
+.delete{
+	color: #ff0000;
+}
+.delete:hover{
+	color: #a62828;
+	text-decoration: none;
+	transition: 0.2s;
+}
+.bool{
+	color: #0091d9;
+}
+
+.bool:hover{
+	color: #1372a1;
+	text-decoration: none;
+	transition: 0.2s;
+}
